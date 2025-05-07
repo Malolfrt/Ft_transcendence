@@ -1,0 +1,51 @@
+services:
+  web:
+    image: nginx:alpine
+    container_name: nginx_ft_transcendence
+    ports:
+      - "8080:80"
+      - "4430:4430"
+    volumes:
+      - ./frontend/dist:/usr/share/nginx/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./docker/nginx/certs:/etc/nginx/certs
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - my_network
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend/Dockerfile
+    container_name: fastify_backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend/srcs:/app/srcs
+      - ./backend/database:/app/database
+      - ./images:/app/images
+      - /app/node_modules
+    networks:
+      - my_network
+    env_file:
+      - ./backend/.env
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend/Dockerfile
+    container_name: frontend_transcendence
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/frontend
+    depends_on:
+      - backend
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge

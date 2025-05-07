@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@fastify/websocket": "^11.0.2",
+    "chart.js": "^4.4.8",
+    "dotenv": "^16.4.7"
+  }
+}

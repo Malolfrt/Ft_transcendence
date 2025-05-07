@@ -1,0 +1,469 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes twinkle {
+    0% { opacity: 0.2; transform: translateY(0px) scale(1); }
+    50% { opacity: 1; transform: translateY(5px) scale(1.2); }
+    100% { opacity: 0.2; transform: translateY(0px) scale(1); }
+}
+
+.animate-twinkle {
+    animation: twinkle ease-in-out infinite;
+}
+
+.input-style {
+    @apply bg-gray-700 text-white p-3 rounded-lg border border-gray-600 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2;
+}
+
+.btn-primary {
+    @apply bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 w-full;
+}
+
+@keyframes twinkling {
+    from { background-position: 0 0; }
+    to { background-position: -1000px 1000px; }
+}
+
+.bg-stars {
+    background-image: url('https://opengameart.org/sites/default/files/bg_space_seamless_1.png');
+    background-size: cover;
+    opacity: 0.3;
+    animation: twinkling 50s infinite linear;
+}
+
+/* Barre de défilement personnalisée */
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(139, 92, 246, 0.5) rgba(17, 24, 39, 0.7);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(147, 51, 234, 0.5);
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(147, 51, 234, 0.7);
+}
+
+.backdrop-blur-sm {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.hover\:bg-opacity-70:hover {
+    transition: background-opacity 0.3s ease;
+}
+
+.transform {
+    transition: transform 0.2s ease;
+}
+
+.hover\:scale-105:hover {
+    transform: scale(1.05);
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #1a202c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.3);
+    overflow: visible;
+    z-index: 20;
+}
+
+.user-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #374151;
+}
+
+.user-container img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.user-container span {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.status-container {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.status-text {
+    font-size: 0.875rem;
+    color: #9CA3AF;
+}
+
+.bg-green-500 {
+    background-color: #10B981;
+}
+
+.bg-red-500 {
+    background-color: #EF4444;
+}
+
+.nav-links {
+    padding-top: 20px;
+    z-index: 10;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out;
+    z-index: 10;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-icon {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #374151;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #10B981;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #10B981;
+}
+
+input:checked + .slider:before {
+    transform: translateX(30px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.divQrCode
+{
+    position:  absolute;
+    top : 25%;
+    left:  40%;
+    width :  300px;
+    background-color: grey;
+    border: 2px solid white;
+    border-radius: 10px;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+}
+
+.divQrCode a
+{
+    color: blue;
+    text-decoration: underline;
+}
+
+.divImageQr
+{
+    display: flex;
+    justify-content: center;
+}
+
+.bigD
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(128, 128, 128, 0.281);
+}
+
+html, body {
+    overflow: hidden;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.friend-item-enter {
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+.friend-hover {
+    transition: all 0.3s ease;
+}
+
+.friend-hover:hover {
+    transform: translateX(4px);
+    background: rgba(147, 51, 234, 0.1);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.notification-pulse {
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.game-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.game-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.game-card:hover::before {
+    transform: translateX(100%);
+}
+
+.game-icon {
+    transition: transform 0.3s ease;
+}
+
+.group:hover .game-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* Effet de brillance pour les boutons */
+.game-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.game-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: transform 0.6s;
+}
+
+.game-button:hover::after {
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+/* Animation pour le texte des cartes */
+.game-card-text {
+    transition: transform 0.3s ease;
+}
+
+.group:hover .game-card-text {
+    transform: translateY(-2px);
+}
+
+/* Styles spécifiques pour la carte IA */
+.game-card[data-mode="ai"] {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.5), rgba(34, 197, 94, 0.1));
+}
+
+.game-card[data-mode="ai"]::before {
+    background: linear-gradient(45deg, transparent, rgba(34, 197, 94, 0.2), transparent);
+}
+
+.game-card[data-mode="ai"] .game-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .game-cards-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .game-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .game-cards-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+.fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+}
+
+.difficulty-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.difficulty-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: transform 0.6s;
+}
+
+.difficulty-btn:hover::after {
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+.difficulty-btn span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.difficulty-btn:hover span {
+    transform: scale(1.2);
+}
